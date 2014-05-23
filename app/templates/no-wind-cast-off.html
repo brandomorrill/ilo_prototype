@@ -1,0 +1,32 @@
+<div id="intro" class="intro">
+    <header>
+        <h2>{ intro.heading }</h2>
+        <h3>{ intro.info }</h3>
+    </header>
+    <button rv-on-click="startCourse">Start</button>
+</div>
+
+<main id="course" class="course hide">
+    <header>
+        <h2>{ currentQuestion.q }</h2>
+        <h3>{ currentQuestion.info }</h3>
+    </header>
+    <section class="answers">
+        <ul>
+            <li rv-each-answer="currentQuestion.answers" rv-on-click="setAnswer">{ answer.a }</li>
+        </ul>
+    </section>
+    <button class="check-answer hide" rv-on-click="checkAnswer">Check Answer</button>
+
+    <div class="answer-correct modal-bottom">
+        <p>You got it right!</p>
+        <button rv-on-click="nextQuestion">Next Question</button>
+    </div>
+
+    <div class="answer-incorrect modal-bottom">
+        <p>You got it so wrong!</p>
+        <button rv-on-click="tryAgain">Try Again</button>
+    </div>
+
+    <div class="boat" style="width: 100px; height: 100px; background-color: yellow;"></div>
+</main>
